@@ -69,14 +69,14 @@ public class Postagem {
 	}
 	@ManyToOne
 	@JsonIgnoreProperties("postagem")
-	private TemaModel temaModel;
+	private Tema tema;
 
-	public TemaModel getTemaModel() {
-		return temaModel;
+	public Tema getTema() {
+		return tema;
 	}
 
-	public void setTemaModel(TemaModel temaModel) {
-		this.temaModel = temaModel;
-	}
+	public void setTema(Tema tema) {
+		this.tema = tema;
+	}}
 	
-}
+

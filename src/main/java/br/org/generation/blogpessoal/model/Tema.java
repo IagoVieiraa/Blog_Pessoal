@@ -15,14 +15,14 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name="tb_temas") 
-public class TemaModel {
+public class Tema {
 	 @Id	
 		@GeneratedValue(strategy = GenerationType.IDENTITY)
 		private Long id;
 		
 		@NotBlank(message = "O atributo Descrição é obrigatório e não pode conter espaços em branco")
 		private String descricao;
-	    @OneToMany(mappedBy = "temaModel", cascade = CascadeType.ALL)
+	    @OneToMany(mappedBy = "tema", cascade = CascadeType.ALL)
 	    @JsonIgnoreProperties("tema")
 		private List<Postagem> postagem;
 		

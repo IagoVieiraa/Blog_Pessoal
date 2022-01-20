@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.org.generation.blogpessoal.model.TemaModel;
+import br.org.generation.blogpessoal.model.Tema;
 import br.org.generation.blogpessoal.repository.TemaRepository;
 @RestController
 @RequestMapping("/temas")
@@ -27,30 +27,30 @@ public class TemaController {
 	private TemaRepository temaRepository;
 	
 	@GetMapping
-	public ResponseEntity<List<TemaModel>> getAll() {
+	public ResponseEntity<List<Tema>> getAll() {
 		return ResponseEntity.ok(temaRepository.findAll());
 
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<TemaModel> getById(@PathVariable Long id) {
+	public ResponseEntity<Tema> getById(@PathVariable Long id) {
 		return temaRepository.findById(id)
 			.map(resposta -> ResponseEntity.ok(resposta))
 			.orElse(ResponseEntity.notFound().build());
 	}
 
 	@GetMapping("/descricao/{descricao}")
-	public ResponseEntity<List<TemaModel>> getByDescricao(@PathVariable String descricao) {
+	public ResponseEntity<List<Tema>> getByDescricao(@PathVariable String descricao) {
 		return ResponseEntity.ok(temaRepository.findAllByDescricaoContainingIgnoreCase(descricao));
 	}
 
 	@PostMapping
-	public ResponseEntity<TemaModel> postTema(@Valid @RequestBody TemaModel tema) {
+	public ResponseEntity<Tema> postTema(@Valid @RequestBody Tema tema) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(temaRepository.save(tema));
 	}
 
 	@PutMapping
-	public ResponseEntity<TemaModel> putTema(@Valid @RequestBody TemaModel tema) {
+	public ResponseEntity<Tema> putTema(@Valid @RequestBody Tema tema) {
 					
 		return temaRepository.findById(tema.getId())
 				.map(resposta -> {
