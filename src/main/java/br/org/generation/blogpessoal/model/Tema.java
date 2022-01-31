@@ -18,11 +18,12 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class Tema {
 	 @Id	
 		@GeneratedValue(strategy = GenerationType.IDENTITY)
-		private Long id;
-		
+		private Long id;	 
+	 
 		@NotBlank(message = "O atributo Descrição é obrigatório e não pode conter espaços em branco")
 		private String descricao;
-	    @OneToMany(mappedBy = "tema", cascade = CascadeType.ALL)
+	   
+		@OneToMany(mappedBy = "tema", cascade = CascadeType.ALL)
 	    @JsonIgnoreProperties("tema")
 		private List<Postagem> postagem;
 		

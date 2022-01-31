@@ -67,10 +67,4 @@ public class PostagemController {
  				})
  				.orElse(ResponseEntity.notFound().build());
  	}
-
-
-
-
-
-
 }
