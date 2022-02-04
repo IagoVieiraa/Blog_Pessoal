@@ -48,6 +48,12 @@
 			<optional>true</optional>
 		</dependency>
 		<dependency>
+<groupId>org.springdoc</groupId>
+<artifactId>springdoc-openapi-ui</artifactId>
+<version>1.5.13</version>
+</dependency>
+		
+		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
@@ -57,6 +63,10 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+<groupId>org.postgresql</groupId>
+<artifactId>postgresql</artifactId>
+</dependency> 
 	</dependencies>
 
 	<build>
@@ -67,5 +77,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
